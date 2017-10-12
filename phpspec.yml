@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: altavisionBlog2
+        psr4_prefix: altavisionBlog2
+        src_path: app

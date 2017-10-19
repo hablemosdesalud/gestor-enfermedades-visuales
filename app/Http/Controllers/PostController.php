@@ -50,6 +50,14 @@ class PostController extends Controller
       $post = Post:: where('slug','=', $slug)->firstOrFail();
       return view('posts.view',['post'=>$post , 'app'=>$app ,'menus'=>$menus ,'posts'=>$posts]);
     }
+    public function getPost($query)
+    {
+      $allPosts=Post::where('title','LIKE','%'.$query.'%')->get();
+      if(count($allPosts))
+        return response()->json($allPosts);
+      else
+        return response()->json(['value'=>'No se han encontrado resultados']);
+    }
     public function edit($id)
     {
       $posts=Post::all();

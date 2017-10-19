@@ -19,6 +19,4 @@ Route::get('posts/downgrade/{id}',  'PostController@downgrade');
 Route::get('allmenus/{id}', 'AppController@getAllMenus');
 Route::get('allposts/{id}', 'MenuController@getAllPosts');
 
-Route::get('api/posts', function (){
-  return response()->json(altavisionBlog2\Post::all());
-});
+Route::get('api/post/{query}', 'PostController@getPost');

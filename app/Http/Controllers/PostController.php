@@ -12,7 +12,7 @@ use altavisionBlog2\Http\Controllers\Controller;
 class PostController extends Controller
 {
     public function __construct(){
-    $this->middleware('auth');
+    $this->middleware('auth', ['except' => 'getPost']);
   }
     public function index(Request $request)
     {

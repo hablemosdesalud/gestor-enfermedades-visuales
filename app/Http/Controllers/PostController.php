@@ -55,7 +55,7 @@ class PostController extends Controller
       $allPosts=Post::where('title','LIKE','%'.$query.'%')->get();
       $data=array();
       foreach ($allPosts as $post) {
-        $data[]=array('title'=>$post->title);
+        $data[]=array('value'=>$post->title);
       }
       if(count($data))
         return $data;

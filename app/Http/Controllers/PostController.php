@@ -50,8 +50,9 @@ class PostController extends Controller
       $post = Post:: where('slug','=', $slug)->firstOrFail();
       return view('posts.view',['post'=>$post , 'app'=>$app ,'menus'=>$menus ,'posts'=>$posts]);
     }
-    public function getPost($query)
+    public function getPost(Request $request)
     {
+      $query = $request->get('term','');
       $allPosts=Post::where('title','LIKE','%'.$query.'%')->get();
       $data=array();
       foreach ($allPosts as $post) {

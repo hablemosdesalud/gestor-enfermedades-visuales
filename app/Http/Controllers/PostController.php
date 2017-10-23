@@ -53,11 +53,16 @@ class PostController extends Controller
     public function getPost($query)
     {
       $allPosts=Post::where('title','LIKE','%'.$query.'%')->get();
-      if(count($allPosts))
-        return response()->json($allPosts);
+      $data=array();
+      foreach ($allPosts as $post) {
+        $data[]=array('slug'=> $post->slug, 'title'=>$post->title);
+      }
+      if(count($data))
+        return $data;
       else
-        return response()->json(['value'=>'No se han encontrado resultados']);
+        return ['value'=>'No se han encontrado resultados','id'=>''];
     }
+
     public function edit($id)
     {
       $posts=Post::all();

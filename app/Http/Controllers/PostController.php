@@ -56,7 +56,11 @@ class PostController extends Controller
       $allPosts=Post::where('title','LIKE','%'.$query.'%')->get();
       $data=array();
       foreach ($allPosts as $post) {
-        $data[]=array('value'=>$post->title);
+        $data[]=array(
+          'app' =>'http://www.'.str_replace("-","",$post->app->slug).'.com.co/'.$post->menu->slug.'/'.$post->slug,
+          'value'=>$post->title,
+          'content'=> substr($post->content, 0 , 300),
+        );
       }
       if(count($data))
         return $data;

@@ -19,4 +19,4 @@ Route::get('posts/downgrade/{id}',  'PostController@downgrade');
 Route::get('allmenus/{id}', 'AppController@getAllMenus');
 Route::get('allposts/{id}', 'MenuController@getAllPosts');
 
-Route::get('api/post', 'PostController@getPost');
+Route::get('api/post', 'PostController@getPost')->middleware('cors');

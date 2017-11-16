@@ -29,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \altavisionBlog2\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \altavisionBlog2\Http\Middleware\RedirectIfAuthenticated::class,
+        'cors' => \altavisionBlog2\Http\Middleware\Cors::class,
     ];
 }
